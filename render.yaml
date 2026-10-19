@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: jarvis-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: GEMINI_API_KEY
+        value: AQ.Ab8RN6KzBOqO83kV74tpHRj6Yp_DtT_bwIcHAkW3-r91CM1rmg
+      - key: SUPABASE_URL
+        value: https://odedeabpdfcrmavikglk.supabase.co
+      - key: SUPABASE_KEY
+        value: sb_publishable_Hf0664f_xUNi1E3BECt4qQ_YLV9eL42
+      - key: ELEVENLABS_API_KEY
+        value: sk_8bbbb870801a16a07c0c53b03853a37cdc8d2103ba397448
+      - key: ELEVENLABS_VOICE_ID
+        value: stXoA5oqcG67YXVToNeu
