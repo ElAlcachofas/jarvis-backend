@@ -26,8 +26,8 @@ app.post('/api/chat', async (req, res) => {
     try {
         const apiKey = process.env.GEMINI_API_KEY;
         
-        // Petición REST directa al modelo gemini-3.8-flash
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${apiKey}`;
+        // Petición REST directa usando la versión estable v1 y gemini-1.5-flash
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
         const geminiPayload = {
             contents: [
