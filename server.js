@@ -34,8 +34,12 @@ app.post('/api/chat', async (req, res) => {
             return res.status(400).json({ error: 'El mensaje es requerido.' }); 
         } 
 
-        // 1. Procesar con Gemini (modelo gemini-3.8-flash)
-        const model = genAI.getGenerativeModel({ model: 'gemini-3.8-flash' }); 
+        // 1. Procesar con Gemini utilizando systemInstruction para forzar el idioma español y su personalidad
+        const model = genAI.getGenerativeModel({ 
+            model: 'gemini-3.8-flash',
+            systemInstruction: "Eres JARVIS, un asistente de inteligencia artificial altamente avanzado. Tu objetivo es ser extremadamente servicial, conciso y elegante en tus respuestas. Debes responder SIEMPRE en idioma español. Refiérete al usuario exclusivamente como 'Marco' o 'Señor'. Evita la redundancia y entrega la información de la forma más directa y profesional posible."
+        }); 
+
         const result = await model.generateContent(message); 
         const textResponse = result.response.text(); 
 
